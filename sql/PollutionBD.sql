@@ -1,4 +1,4 @@
-5
+
 USE PollutionDB;
 GO
 
