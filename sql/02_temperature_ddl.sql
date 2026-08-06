@@ -1,76 +1,66 @@
-USE ClimatCanadaDB
+USE ClimatCanadaDB;
 GO
-CREATE TABLE Temperature.Temperature2023
+
+CREATE TABLE Temperature.Temperatures
 (
-    CodeProvince CHAR(2) primary key,
-    TemperatureMoyenne DECIMAL(5,2) NOT NULL
-);
-GO
-CREATE TABLE Temperature.Temperature2024
-(
-    CodeProvince CHAR(2) primary key,
-    TemperatureMoyenne DECIMAL(5,2) NOT NULL
-);
-GO
-CREATE TABLE Temperature.Temperature2025
-(
-    CodeProvince CHAR(2) primary key,
-    TemperatureMoyenne DECIMAL(5,2) NOT NULL
+    CodeProvince CHAR(2) NOT NULL,
+    Annee SMALLINT NOT NULL,
+    TemperatureMoyenne DECIMAL(5,2) NOT NULL,
+    CONSTRAINT PK_Temperatures
+        PRIMARY KEY (CodeProvince, Annee),
+    CONSTRAINT FK_Temperatures_Provinces
+        FOREIGN KEY (CodeProvince) REFERENCES Ref.Provinces(CodeProvince),
+    CONSTRAINT CK_Temperatures_Annee
+        CHECK (Annee BETWEEN 2023 AND 2025)
 );
 GO
 
-INSERT INTO Temperature.Temperature2023
-    (CodeProvince, TemperatureMoyenne)
+INSERT INTO Temperature.Temperatures
+    (CodeProvince, Annee, TemperatureMoyenne)
 VALUES
-    ('AB', Temperature2023),
-    ('BC', Temperature2023),
-    ('MB', Temperature2023),
-    ('NB', Temperature2023),
-    ('NL', Temperature2023),
-    ('NS', Temperature2023),
-    ('ON', Temperature2023),
-    ('PE', Temperature2023),
-    ('QC', Temperature2023),
-    ('SK', Temperature2023),
-    ('NT', Temperature2023),
-    ('NU', Temperature2023),
-    ('YT', Temperature2023);
+    ('BC', 2023, 11.3),
+    ('AB', 2023, 5.5),
+    ('PE', 2023, 7.3),
+    ('MB', 2023, 4.8),
+    ('NB', 2023, 6.4),
+    ('NS', 2023, 7.5),
+    ('ON', 2023, 11.8),
+    ('SK', 2023, 5.2),
+    ('QC', 2023, 7.1),
+    ('NL', 2023, 6.6),
+    ('YT', 2023, -4.1),
+    ('NT', 2023, -5.5),
+    ('NU', 2023, -14.5),
+    ('BC', 2024, 11.0),
+    ('AB', 2024, 6.4),
+    ('PE', 2024, 7.6),
+    ('MB', 2024, 5.7),
+    ('NB', 2024, 7.4),
+    ('NS', 2024, 7.6),
+    ('ON', 2024, 12.5),
+    ('SK', 2024, 5.0),
+    ('QC', 2024, 8.0),
+    ('NL', 2024, 7.2),
+    ('YT', 2024, -4.4),
+    ('NT', 2024, -7.0),
+    ('NU', 2024, -14.2),
+    ('BC', 2025, 11.2),
+    ('AB', 2025, 4.0),
+    ('PE', 2025, 6.8),
+    ('MB', 2025, 3.8),
+    ('NB', 2025, 5.8),
+    ('NS', 2025, 6.9),
+    ('ON', 2025, 10.9),
+    ('SK', 2025, 4.3),
+    ('QC', 2025, 6.0),
+    ('NL', 2025, 6.7),
+    ('YT', 2025, -3.6),
+    ('NT', 2025, -6.0),
+    ('NU', 2025, -15.3);
 GO
 
-INSERT INTO Temperature.Temperature2024
-    (CodeProvince, TemperatureMoyenne)
-VALUES
-    ('AB', Temperature2024),
-    ('BC', Temperature2024),
-    ('MB', Temperature2024),
-    ('MB', Temperature2024),
-    ('NB', Temperature2024),
-    ('NL', Temperature2024),
-    ('NS', Temperature2024),
-    ('ON', Temperature2024),
-    ('PE', Temperature2024),
-    ('QC', Temperature2024),
-    ('SK', Temperature2024),
-    ('NT', Temperature2024),
-    ('NU', Temperature2024),
-    ('YT', Temperature2024);
-GO
-
-INSERT INTO Temperature.Temperature2025
-    (CodeProvince, TemperatureMoyenne)
-VALUES
-    ('AB', Temperature2025),
-    ('BC', Temperature2025),
-    ('MB', Temperature2025),
-    ('MB', Temperature2025),
-    ('NB', Temperature2025),
-    ('NL', Temperature2025),
-    ('NS', Temperature2025),
-    ('ON', Temperature2025),
-    ('PE', Temperature2025),
-    ('QC', Temperature2025),
-    ('SK', Temperature2025),
-    ('NT', Temperature2025),
-    ('NU', Temperature2025),
-    ('YT', Temperature2025);
+SELECT Annee, COUNT(*) AS NbProvinces
+FROM Temperature.Temperatures
+GROUP BY Annee
+ORDER BY Annee;
 GO

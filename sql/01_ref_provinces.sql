@@ -1,12 +1,16 @@
+USE ClimatCanadaDB;
+GO
 
-CREATE TABLE Ref.Provinces (
-    CodeProvince  CHAR(2)  primary key,
-    NomProvince  NVARCHAR(30) unique
+CREATE TABLE Ref.Provinces
+(
+    CodeProvince CHAR(2) primary key,
+    NomProvince NVARCHAR(30) unique
 );
 GO
 
-INSERT INTO Ref.Provinces (CodeProvince, NomProvince)
-VALUES 
+INSERT INTO Ref.Provinces
+    (CodeProvince,NomProvince)
+VALUES
     ('AB', N'Alberta'),
     ('BC', N'Colombie-Britannique'),
     ('MB', N'Manitoba'),
@@ -23,5 +27,5 @@ VALUES
 GO
 
 SELECT CodeProvince, NomProvince
-FROM ref.Provinces;
+FROM Ref.Provinces;
 GO
