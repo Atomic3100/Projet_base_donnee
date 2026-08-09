@@ -1,0 +1,34 @@
+.logo-section img {
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+.bloc {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: #c4dcf5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bloc a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.bloc p {
+    margin: 0;
+    text-align: centre;
+}
+
+.blocs .container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
