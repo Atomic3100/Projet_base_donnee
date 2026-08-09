@@ -1,0 +1,25 @@
+:root {
+    --bleu-marine: #032f57;
+    --rouge: #______;
+    --turquoise: #______;
+}
+
+.site-header {
+    background-color: var(--bleu-marine);
+    padding: 1rem;
+}
+
+.site-header a {
+    text-decoration: none;
+    color: white;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.brand img {
+    height: 35px;
+}
