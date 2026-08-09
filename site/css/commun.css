@@ -1,7 +1,7 @@
 :root {
     --bleu-marine: #032f57;
-    --rouge: #______;
-    --turquoise: #______;
+    --rouge: #D71E24;
+    --turquoise: #068897;
 }
 
 .site-header {
@@ -22,4 +22,27 @@
 
 .brand img {
     height: 35px;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+body {
+    font-family: Segoe UI;
+    line-height: 1.6;
+    margin: 0;
+}
+
+hero {
+    padding: 20px;
+}
+
+.footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--bleu-marine);
+    color: white;
 }
