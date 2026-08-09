@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="températures (dégrée Celsius o C) moyennes de 
+chaque année dans chacune des 13 provinces et territoires du Canada.">
+    <title>Pollution | Climat Canada</title>
+    <link rel="stylesheet" href="css/commun.css">
+    <link rel="stylesheet" href="css/donnees.css">
+</head>
+
+<body data-theme="TemperatureDB">
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="index.html"><span class="brand-mark">CC</span>Climat Canada</a>
+            <nav class="main-nav" aria-label="Navigation principale">
+                <a href="index.html">Accueil</a><a href="Temperature.html" aria-current="page">Température</a><a
+                    href="pollution.html">Pollution</a><a href="precipitations.html">Précipitations</a><a
+                    href="resultats.html">Résultats</a><a href="equipe.html">Équipe</a>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <p class="eyebrow">Température</p>
+            <h1></h1>
+            <p>Comparaison des Temperatures moyennes annuelles par province et territoire pour la période 2023–2025.</p>
+        </div>
+    </section>
+    <main class="container">
+        <section class="controls" aria-label="Filtres">
+            <div class="field"><label for="year">Année observée</label><select id="year">
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option selected>2025</option>
+                </select></div>
+            <p class="status">Affichage de <strong>13 provinces et territoires</strong> en <strong
+                    id="selected-year">2025</strong></p>
+        </section>
+        <section class="stats" aria-label="Résumé">
+            <article class="card stat"><span>Valeur la plus élevée</span><strong id="highest">—</strong></article>
+            <article class="card stat"><span>Valeur la plus faible</span><strong id="lowest">—</strong></article>
+            <article class="card stat"><span>Territoires comparés</span><strong id="count">—</strong></article>
+        </section>
+        <section class="grid">
+            <article class="card">
+                <div class="card-head">
+                    <h2>Données détaillées</h2>
+                    <p>Températures moyennes annuelles exprimées en degrés Celsius.</p>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Province ou territoire</th>
+                                <th>Température</th>
+                            </tr>
+                        </thead>
+                        <tbody id="data-body"></tbody>
+                    </table>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-head">
+                    <h2>Comparaison visuelle</h2>
+                    <p>Classement décroissant pour l’année choisie.</p>
+                </div>
+                <div id="chart" class="chart" role="img"
+                    aria-label="Graphique de la température par province et territoire"></div>
+            </article>
+        </section>
+        <p class="note"><strong>Note méthodologique :</strong> ces valeurs constituent le jeu de données du projet
+            scolaire. Elles devront être validées et remplacées par les résultats provenant de SQL Server lors de
+            l’intégration finale.</p>
+    </main>
+    <footer class="site-footer">
+        <div class="container">Projet INF4163 · Climat Canada · 2026</div>
+    </footer>
+    <script src="js/donnees.js"></script>
+</body>
+
+</html>
