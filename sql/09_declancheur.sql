@@ -3,6 +3,21 @@ GO
 
 DROP TABLE IF EXISTS Ref.AuditTemperatures;
 GO
+CREATE OR ALTER TRIGGER Temperature.trg_Audit_Temperatures
+ON Temperature.Temperatures
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Ref.AuditTemperatures
+        (CodeProvince, Annee, AncienneVal, NouvelleVal)
+    SELECT i.CodeProvince, i.Annee, d.TemperatureMoyenne, i.TemperatureMoyenne
+    FROM inserted AS i
+        INNER JOIN deleted AS d
+            ON d.CodeProvince = i.CodeProvince AND d.Annee = i.Annee;
+END;
+GO
 
 CREATE TABLE Ref.AuditTemperatures
 (
