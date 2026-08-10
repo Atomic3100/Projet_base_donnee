@@ -7,3 +7,67 @@
     background-color: #c4dcf5;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.chart-row {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .4rem;
+}
+
+.chart-label {
+    width: 2.5rem;
+    font-weight: 600;
+}
+
+.chart-track {
+    flex: 1;
+    background: #e8e8e8;
+    border-radius: 3px;
+}
+
+.chart-bar {
+    height: 1.1rem;
+    background: #3a7ca5;
+    border-radius: 3px;
+}
+
+.chart-value {
+    width: 7rem;
+    text-align: right;
+    font-size: .85rem;
+}
+
+.powerbi {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.powerbi img {
+    flex: 1;
+    min-width: 250px;
+    max-width: 100%;
+    height: auto;
+}
+
+.powerbi-grid table {
+    margin: 0 auto;
+}
+
+.powerbi-grid img {
+    max-width: 320px;
+}
+
+.powerbi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.powerbi-grid img {
+    width: 100%;
+    height: auto;
+}
