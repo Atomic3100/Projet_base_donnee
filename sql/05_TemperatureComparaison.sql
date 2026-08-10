@@ -1,9 +1,6 @@
 USE ClimatCanadaDB;
 GO
 
-/* ============================================================
-   1. Année la plus chaude et année la moins chaude
-   ============================================================ */
 
 CREATE OR ALTER PROCEDURE Temperature.sp_AnneePlusMoinsChaude
 AS
@@ -58,9 +55,6 @@ END;
 GO
 
 
-/* ============================================================
-   2. Province la plus chaude et province la moins chaude
-   ============================================================ */
 
 CREATE OR ALTER PROCEDURE Temperature.sp_ProvincePlusMoinsChaude
 AS
@@ -118,7 +112,7 @@ END;
 GO
 
 
-/* Vérifier la création des deux procédures */
+
 SELECT
     s.name AS NomSchema,
     p.name AS NomProcedure,
@@ -136,7 +130,6 @@ ORDER BY p.name;
 GO
 
 
-/* Exécuter les deux analyses */
 EXEC Temperature.sp_AnneePlusMoinsChaude;
 GO
 

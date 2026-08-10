@@ -1,9 +1,6 @@
 USE ClimatCanadaDB;
 GO
 
-/* ============================================================
-   1. Année la plus polluée et année la moins polluée
-   ============================================================ */
 
 CREATE OR ALTER PROCEDURE Pollution.sp_AnneePlusMoinsPolluee
 AS
@@ -57,10 +54,6 @@ BEGIN
 END;
 GO
 
-
-/* ============================================================
-   2. Province la plus polluée et province la moins polluée
-   ============================================================ */
 
 CREATE OR ALTER PROCEDURE Pollution.sp_ProvincePlusMoinsPolluee
 AS
@@ -118,7 +111,6 @@ END;
 GO
 
 
-/* Vérifier la création des procédures */
 SELECT
     s.name AS NomSchema,
     p.name AS NomProcedure,
@@ -136,7 +128,6 @@ ORDER BY p.name;
 GO
 
 
-/* Exécuter les analyses */
 EXEC Pollution.sp_AnneePlusMoinsPolluee;
 GO
 

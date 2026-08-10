@@ -1,9 +1,6 @@
 USE ClimatCanadaDB;
 GO
 
-/* ============================================================
-   1. Année la plus pluvieuse et année la moins pluvieuse
-   ============================================================ */
 
 CREATE OR ALTER PROCEDURE Precipitation.sp_AnneePlusMoinsPluvieuse
 AS
@@ -54,10 +51,6 @@ BEGIN
 END;
 GO
 
-
-/* ============================================================
-   2. Province la plus pluvieuse et la moins pluvieuse
-   ============================================================ */
 
 CREATE OR ALTER PROCEDURE Precipitation.sp_ProvincePlusMoinsPluvieuse
 AS
@@ -112,7 +105,6 @@ END;
 GO
 
 
-/* Vérifier la création */
 SELECT
     s.name AS NomSchema,
     p.name AS NomProcedure,
@@ -130,7 +122,7 @@ ORDER BY p.name;
 GO
 
 
-/* Exécuter les deux analyses */
+
 EXEC Precipitation.sp_AnneePlusMoinsPluvieuse;
 GO
 
