@@ -1,6 +1,9 @@
 USE ClimatCanadaDB;
 GO
 
+DROP TABLE IF EXISTS Temperature.Temperatures;
+GO
+
 CREATE TABLE Temperature.Temperatures
 (
     CodeProvince CHAR(2) NOT NULL,
