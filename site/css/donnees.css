@@ -51,9 +51,6 @@
     height: auto;
 }
 
-.powerbi-grid table {
-    margin: 0 auto;
-}
 
 .powerbi-grid img {
     max-width: 320px;
@@ -70,4 +67,5 @@
 .powerbi-grid img {
     width: 100%;
     height: auto;
+    margin: 0 auto;
 }

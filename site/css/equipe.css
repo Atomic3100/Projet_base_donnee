@@ -10,11 +10,6 @@
     margin-bottom: 2rem;
 }
 
-.member-card {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-}
 
 .member-card {
     display: flex;

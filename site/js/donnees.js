@@ -1,11 +1,4 @@
-/* ============================================================
-   donnees.js — Projet INF4163 · Climax
-   Alimente les pages temperature, pollution, precipitations
-   et resultats. Les valeurs proviennent des scripts SQL
-   02, 03 et 04 (ClimatCanadaDB).
-   ============================================================ */
 
-/* ---------- Noms des provinces (Ref.Provinces) ---------- */
 const PROVINCES = {
     AB: "Alberta",
     BC: "Colombie-Britannique",
@@ -22,8 +15,7 @@ const PROVINCES = {
     YT: "Yukon"
 };
 
-/* ---------- Données par thème ---------- */
-/* Chaque entrée : [CodeProvince, valeur2023, valeur2024, valeur2025] */
+
 
 const DONNEES = {
     temperature: {
@@ -87,10 +79,7 @@ const DONNEES = {
 
 const ANNEES = [2023, 2024, 2025];
 
-/* ---------- Utilitaires ---------- */
 
-/* Le thème est lu sur <body data-theme="...">, en minuscules
-   pour tolérer "Temperature" comme "temperature". */
 function lireTheme() {
     const brut = document.body.dataset.theme || "";
     return brut.toLowerCase();
@@ -100,8 +89,7 @@ function formater(valeur, config) {
     return valeur.toFixed(config.decimales) + " " + config.unite;
 }
 
-/* Extrait la liste [code, nom, valeur] pour une année donnée,
-   triée en ordre décroissant. */
+
 function extraire(config, annee) {
     const colonne = ANNEES.indexOf(annee) + 1;
     return config.valeurs
@@ -113,7 +101,7 @@ function extraire(config, annee) {
         .sort((a, b) => b.valeur - a.valeur);
 }
 
-/* ---------- Rendu du tableau ---------- */
+
 function remplirTableau(lignes, config) {
     const corps = document.getElementById("data-body");
     if (!corps) return;
@@ -137,7 +125,7 @@ function remplirTableau(lignes, config) {
     });
 }
 
-/* ---------- Rendu des cartes de résumé ---------- */
+
 function remplirResume(lignes, config) {
     const plusHaut = lignes[0];
     const plusBas = lignes[lignes.length - 1];
@@ -157,10 +145,6 @@ function remplirResume(lignes, config) {
     }
 }
 
-/* ---------- Rendu du graphique ----------
-   Barres horizontales en HTML. La largeur est calculée
-   sur l'étendue min–max, ce qui gère les valeurs
-   négatives des températures. */
 function remplirGraphique(lignes, config) {
     const zone = document.getElementById("chart");
     if (!zone) return;
@@ -199,7 +183,7 @@ function remplirGraphique(lignes, config) {
     });
 }
 
-/* ---------- Mise à jour globale d'une page de données ---------- */
+
 function afficherAnnee(config, annee) {
     const lignes = extraire(config, annee);
 
@@ -211,12 +195,11 @@ function afficherAnnee(config, annee) {
     if (libelle) libelle.textContent = annee;
 }
 
-/* ---------- Démarrage ---------- */
+
 document.addEventListener("DOMContentLoaded", function () {
     const theme = lireTheme();
     const config = DONNEES[theme];
 
-    /* Page sans jeu de données (accueil, équipe) : rien à faire. */
     if (!config) return;
 
     const selecteur = document.getElementById("year");
